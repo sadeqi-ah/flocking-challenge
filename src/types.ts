@@ -1,11 +1,13 @@
+import Vector from './vector';
+
 export type BoidOption = {
     x: number;
     y: number;
     color: string | CanvasGradient | CanvasPattern;
 };
 
-// export type canvasOptions = {
-//     width?: number;
-//     height?: number;
-//     background?: string | CanvasGradient | CanvasPattern;
-// };
+export type ClickPoint = {
+    position: Vector;
+    clicked: boolean;
+    aria: number;
+};

@@ -1,3 +1,4 @@
+import { ClickPoint } from './types';
 import Vector from './vector';
 
 export default class Canvas {
@@ -6,7 +7,7 @@ export default class Canvas {
     private width: number;
     private height: number;
     private background: string | CanvasGradient | CanvasPattern;
-    private click: Vector | undefined;
+    private click: ClickPoint;
 
     constructor(
         color: string | CanvasGradient | CanvasPattern = 'black',
@@ -16,6 +17,12 @@ export default class Canvas {
         this.width = width;
         this.height = height;
         this.background = color;
+
+        this.click = {
+            clicked: false,
+            position: Vector.ZERO(),
+            aria: 150,
+        };
 
         //create canvas
         const canvas = document.createElement('canvas');
@@ -29,7 +36,8 @@ export default class Canvas {
         this.resize(width, height);
 
         window.addEventListener('resize', () => this.resize());
-        canvas.onclick = (e) => (this.click = new Vector(e.clientX, e.clientY));
+
+        window.addEventListener('click', (e) => this.onClick(e));
     }
 
     resize(
@@ -61,6 +69,14 @@ export default class Canvas {
 
     getBackground() {
         return this.background;
+    }
+
+    onClick(e: any): void {
+        this.click.clicked = true;
+        this.click.position = this.click.position.set(e.clientX, e.clientY);
+        setTimeout(() => {
+            this.click.clicked = false;
+        }, 10);
     }
 
     getClick() {

@@ -53,31 +53,32 @@ export default class Boid {
     }
 
     run(boids: Array<Boid>): void {
-        this.flock(boids);
-        this.update();
+        const escape = this.escape();
+
+        this.flock(boids, escape);
+        this.update(escape);
         this.borders();
         this.render();
     }
 
-    flock(boids: Array<Boid>): void {
+    flock(boids: Array<Boid>, escape: boolean): void {
         let separate = this.separate(boids);
         let alignment = this.alignment(boids);
         let cohesion = this.cohesion(boids);
 
-        const escape = false;
-        // const escape = this.escape();
-
-        separate.multiply(escape ? -1.5 : 1.5);
-        alignment.multiply(escape ? -1.0 : 1.0);
-        cohesion.multiply(escape ? -1.0 : 1.0);
+        separate.multiply(!escape ? 1.5 : -100);
+        alignment.multiply(!escape ? 1.0 : -100);
+        cohesion.multiply(!escape ? 1.0 : -100);
 
         this.applyForce(separate);
         this.applyForce(alignment);
         this.applyForce(cohesion);
     }
 
-    update(): void {
-        this.velocity.add(this.acceleration).limit(Boid.maxspeed);
+    update(escape: boolean): void {
+        this.velocity
+            .add(this.acceleration)
+            .limit(escape ? 1000 : Boid.maxspeed);
         this.position.add(this.velocity);
         this.acceleration.multiply(0);
     }
@@ -164,21 +165,10 @@ export default class Boid {
             .limit(Boid.maxforce);
     }
 
-    // escape(): boolean {
-    //     const neighbor = 100;
-    //     const point = Core.instans.getCanvas().getClick();
-    //     if (!point) return false;
-    //     const pointDis = this.position.clone().distance(point);
-    //     return pointDis < neighbor;
-    // }
-
-    seek(target: Vector) {
-        return target
-            .clone()
-            .sub(this.position)
-            .normalize()
-            .multiply(Boid.maxspeed)
-            .sub(this.velocity)
-            .limit(Boid.maxforce);
+    escape(): boolean {
+        const click = Core.instans.getCanvas().getClick();
+        if (!click.clicked) return false;
+        const pointDis = this.position.clone().distance(click.position);
+        return pointDis < click.aria;
     }
 }

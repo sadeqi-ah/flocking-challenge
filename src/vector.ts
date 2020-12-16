@@ -18,9 +18,10 @@ export default class Vector {
     static CONST_ZERO = Vector.ZERO();
     static CONST_ONE = Vector.ONE();
 
-    set(x: number, y: number): void {
+    set(x: number, y: number): Vector {
         this.x = x;
         this.y = y;
+        return this;
     }
 
     clear(): void {
