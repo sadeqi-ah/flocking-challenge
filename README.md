@@ -1,4 +1,4 @@
-# Flocking Boid | Challenge
+# Flocking Boids | Challenge
 
 ## Installing
 
