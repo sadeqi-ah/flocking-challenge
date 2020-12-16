@@ -8,8 +8,8 @@ export default class Boid {
     private position: Vector;
     private velocity: Vector;
     private acceleration: Vector;
-    private maxspeed: number;
-    private maxforce: number;
+    static maxspeed: number = 6;
+    static maxforce: number = 0.3;
     private color: string | CanvasGradient | CanvasPattern;
     static desiredseparation = 30.0;
     static alignmentAria = 50;
@@ -21,9 +21,6 @@ export default class Boid {
         this.acceleration = Vector.ZERO();
 
         this.color = option.color;
-
-        this.maxspeed = 8;
-        this.maxforce = 0.05;
     }
 
     render() {
@@ -80,7 +77,7 @@ export default class Boid {
     }
 
     update(): void {
-        this.velocity.add(this.acceleration).limit(this.maxspeed);
+        this.velocity.add(this.acceleration).limit(Boid.maxspeed);
         this.position.add(this.velocity);
         this.acceleration.multiply(0);
     }
@@ -118,9 +115,9 @@ export default class Boid {
 
         return result
             .normalize()
-            .multiply(this.maxspeed)
+            .multiply(Boid.maxspeed)
             .sub(this.velocity)
-            .limit(this.maxforce);
+            .limit(Boid.maxforce);
     }
 
     alignment(boids: Array<Boid>): Vector {
@@ -139,9 +136,9 @@ export default class Boid {
         return result
             .divide(count)
             .normalize()
-            .multiply(this.maxspeed)
+            .multiply(Boid.maxspeed)
             .sub(this.velocity)
-            .limit(this.maxforce);
+            .limit(Boid.maxforce);
     }
 
     cohesion(boids: Array<Boid>): Vector {
@@ -162,9 +159,9 @@ export default class Boid {
             .clone()
             .sub(this.position)
             .normalize()
-            .multiply(this.maxspeed)
+            .multiply(Boid.maxspeed)
             .sub(this.velocity)
-            .limit(this.maxforce);
+            .limit(Boid.maxforce);
     }
 
     // escape(): boolean {
@@ -180,8 +177,8 @@ export default class Boid {
             .clone()
             .sub(this.position)
             .normalize()
-            .multiply(this.maxspeed)
+            .multiply(Boid.maxspeed)
             .sub(this.velocity)
-            .limit(this.maxforce);
+            .limit(Boid.maxforce);
     }
 }

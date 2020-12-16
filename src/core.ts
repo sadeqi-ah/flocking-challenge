@@ -5,20 +5,17 @@ import Flock from './flock';
 import * as colors from './colors';
 import { random } from './helper';
 import { BIRD_COUNT } from './values';
-import Rock from './rock';
 
 export default class Core {
     static instans: Core;
     private canvas: Canvas;
     private flock: Flock;
-    private rock: Rock;
 
     constructor() {
         Core.instans = this;
 
         this.canvas = new Canvas(background);
         this.flock = new Flock();
-        this.rock = new Rock();
 
         const boidColors: string[] = [
             colors.burnt_sienna,
@@ -45,6 +42,16 @@ export default class Core {
     }
 
     render(): void {
+        this.clear();
+        this.flock.run();
+        window.requestAnimationFrame(() => this.render());
+    }
+
+    getCanvas() {
+        return this.canvas;
+    }
+
+    clear() {
         this.canvas.context.clearRect(
             0,
             0,
@@ -58,14 +65,5 @@ export default class Core {
             this.canvas.getWidth(),
             this.canvas.getHeight(),
         );
-        this.rock.render();
-        this.flock.run();
-        window.requestAnimationFrame(() => this.render());
     }
-
-    getCanvas() {
-        return this.canvas;
-    }
-
-    registerRock() {}
 }
