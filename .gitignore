@@ -1,0 +1,21 @@
+# Distribution
+dist
+out
+build
+node_modules
+
+# Logs
+*.log*
+logs
+
+# Environment
+*.env*
+
+# Misc
+.DS_Store
+
+# npm
+package-lock.json
+
+# yarn
+yarn.lock
