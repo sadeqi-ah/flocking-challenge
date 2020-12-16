@@ -1,6 +1,6 @@
 # Flocking Boid | Challenge
 
-### Installing
+## Installing
 
 Please run `yarn install` or `npm install` to get required packages
 
