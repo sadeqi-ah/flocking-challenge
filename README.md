@@ -1,8 +1,8 @@
-# Flocking Boid | Challenge
+# Flocking Boids | Challenge
 
-### Installing
+## Installing
 
-Please run `yarn dev` or `npm run dev` to get required packages
+Please run `yarn install` or `npm install` to get required packages
 
 ## Run
 
