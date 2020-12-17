@@ -1,4 +1,5 @@
 # Flocking Boids | Challenge
+[demo](https://sadeqi-ah.github.io/flocking-challenge/demo/)
 
 ## Installing
 
