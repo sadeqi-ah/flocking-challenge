@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Just a challenge :)",
     "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "private": false,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "watch": "webpack --config webpack.dev.js --watch",
@@ -20,7 +20,7 @@
         "challenge"
     ],
     "author": "amirhossein sadeqi",
-    "license": "ISC",
+    "license": "GPL-3.0+",
     "bugs": {
         "url": "https://github.com/sadeqi-ah/flocking-challenge/issues"
     },

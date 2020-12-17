@@ -1,4 +1,4 @@
-import Vector from './vector';
+import Vector from './core/vector';
 
 export type BoidOption = {
     x: number;

@@ -15,7 +15,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: [".wasm", ".ts", ".tsx", ".mjs", ".cjs", ".js", ".json", ".html"]
+        extensions: [".ts", ".js"]
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

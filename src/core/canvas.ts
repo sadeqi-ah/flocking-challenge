@@ -1,4 +1,4 @@
-import { ClickPoint } from './types';
+import { ClickPoint } from '../types';
 import Vector from './vector';
 
 export default class Canvas {

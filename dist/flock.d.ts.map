@@ -1,1 +1,0 @@
-{"version":3,"file":"flock.d.ts","sourceRoot":"","sources":["../src/flock.ts"],"names":[],"mappings":"AAAA,OAAO,IAAI,MAAM,QAAQ,CAAC;AAE1B,MAAM,CAAC,OAAO,OAAO,KAAK;IACf,KAAK,EAAE,KAAK,CAAC,IAAI,CAAC,CAAC;;IAM1B,GAAG,IAAI,IAAI;IAIX,OAAO,CAAC,IAAI,EAAE,IAAI,GAAG,IAAI;CAG5B"}

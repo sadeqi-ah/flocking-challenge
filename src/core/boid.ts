@@ -1,8 +1,8 @@
 import Vector from './vector';
-import { random } from './helper';
-import { BoidOption } from './types';
-import Core from './core';
-import { BIRD_SIZE } from './values';
+import { random } from '../helper';
+import { BoidOption } from '../types';
+import Core from '.';
+import { BIRD_SIZE } from '../values';
 
 export default class Boid {
     private position: Vector;
@@ -17,7 +17,7 @@ export default class Boid {
 
     constructor(option: BoidOption) {
         this.position = new Vector(option.x, option.y);
-        this.velocity = new Vector(random(-1, 1), random(-1, 1));
+        this.velocity = new Vector(random(-2, 2), random(-2, 2));
         this.acceleration = Vector.ZERO();
 
         this.color = option.color;

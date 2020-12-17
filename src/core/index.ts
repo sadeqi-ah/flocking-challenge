@@ -1,10 +1,10 @@
 import Boid from './boid';
 import Canvas from './canvas';
-import { background } from './colors';
+import { background } from '../colors';
 import Flock from './flock';
-import * as colors from './colors';
-import { random } from './helper';
-import { BIRD_COUNT } from './values';
+import * as colors from '../colors';
+import { random } from '../helper';
+import { BIRD_COUNT } from '../values';
 
 export default class Core {
     static instans: Core;
@@ -18,13 +18,13 @@ export default class Core {
         this.flock = new Flock();
 
         const boidColors: string[] = [
-            colors.burnt_sienna,
+            colors.yellow,
             colors.honeydew,
-            colors.imperial_red,
-            colors.orange_yellow_crayola,
+            colors.red,
+            colors.orange,
             colors.persian_green,
             colors.powder_blue,
-            colors.sandy_brown,
+            colors.purple,
         ];
 
         for (let i = 0; i < BIRD_COUNT; i++) {
