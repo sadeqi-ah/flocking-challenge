@@ -1,0 +1,9 @@
+export declare const background = "#003049";
+export declare const persian_green = "#2A9D8F";
+export declare const orange = "#F77F00";
+export declare const purple = "#9D4EDD";
+export declare const yellow = "#FCBF49";
+export declare const powder_blue = "#A8DADC";
+export declare const honeydew = "#F1FAEE";
+export declare const red = "#d62828";
+//# sourceMappingURL=colors.d.ts.map
