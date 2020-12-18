@@ -2,7 +2,7 @@
     "name": "flocking-challenge",
     "version": "1.0.0",
     "description": "Just a challenge :)",
-    "main": "dist/index.js",
+    "main": "src/index.ts",
     "private": false,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
